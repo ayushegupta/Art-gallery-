@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Webpage Validation</title>
+    <script type="text/javascript">
+        function Validation() {
+            user = document.getElementById("uname").value
+            addr = document.getElementById("addr").value
+            email = document.getElementById("email").value
+            Phno = document.getElementById("Phno").value
+            alpha = /[a-zA-Z]+$/
+            num = /[0-9]+$/
+            if ((user == "") || (addr == "") || (email == "") || (Phno == "")) {
+                alert("All the fields are mandatory")
+            }
+            else if (!(user.match(alpha))) {
+                document.getElementById("uname").focus()
+                alert("Write Only Characters")
+                document.getElementById("uname").value = ""
+            }
+            else if (email.indexOf('@') == -1 || email.indexOf('.') == -1) {
+                document.getElementById("email").focus()
+                alert("Enter the correct email id")
+                document.getElementById("email").value = ""
+            }
+            else if ((!(Phno.match(num))) || (Phno.length != 10)) {
+                document.getElementById("Phno").focus()
+                alert("Enter the correct Phone Number")
+                document.getElementById("Phno").value = ""
+            }
+            else {
+                alert("Present's support will reach out to you soon!Thank You for sharing the information!")
+            }
+        }
+    </script>
+</head>
+
+<body bgcolor="white">
+<center>
+<h1><b><u><i>REGISTRATION FORM</i></u></b></h1><hr color="black" size="3" /><br /><br />
+<table> 
+<tr> 
+    <td>Username : </td> 
+    <td><input type="text" id="uname" /><br /></td> 
+</tr> 
+ 
+<tr> 
+    <td>Address :</td> 
+    <td><textarea id="addr" rows="10" cols="22"></textarea><br /></td> 
+</tr> 
+<tr> 
+    <td>Email Id: </td> 
+    <td><input type="text" id="email" /><br /></td> 
+</tr> 
+<tr> 
+    <td>Phone Number:<br /><br /></td> 
+    <td><input type="text" id="Phno" /><br /><br /></td> 
+</tr> 
+<tr> 
+    <td colspan="2" align="center"><input type="button" value="VALIDATE" onclick="Validation()" /><br /></td> 
+</tr> 
+</table> 
+</center>
+</body>
+</html>
